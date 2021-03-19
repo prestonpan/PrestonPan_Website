@@ -4,10 +4,17 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- main stylesheet -->
     <link rel="stylesheet" href="./css/index.css">
-    <script src="./js/index.js" async></script>
-    <link rel="preconnect" href="https://fonts.gstatic.com">
+
+    <script src="./js/posts.js" async></script> <!-- for displaying posts -->
+    <script src="./js/projects.js" async></script> <!-- for displaying projects -->
+
+    <!-- font stuff -->
+    <link rel="preconnect" href="https://fonts.gstatic.com"> 
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200&display=swap" rel="stylesheet">
+    
     <title>PanTech</title>
 </head>
 
@@ -22,7 +29,7 @@
 
         <!-- About me section -->
         <section>
-            <h3>About Me</h3>
+            <h2>About Me</h2>
             <p>Hello! My name is Preston Pan, a student at Sir Winston Churchill Secondary. Here is a little bit about myself:</p>
             <ul>
                 <li>experimenting with C, proficient in python</li>
@@ -37,47 +44,38 @@
             </p>
         </section>
 
-        <!-- Contact me section -->
-        <section>
-            <h3>Contact Me</h3>
-            <p>I only use platforms that respect my privacy. Therefore, I do not have an active discord account or social media.</p>
-            <ul>
-                <li>My Email: PrestonPan@protonmail.com</li>
-                <li>My XMPP address: prestonpan@jabber.calyxinstitute.org</li>
-                <li>My Gitlab: <a href="https://gitlab.com/PrestonPan">https://gitlab.com/PrestonPan</a></li>
-                <li>Gitlab RSS feed: <a href="https://gitlab.com/PrestonPan.atom">https://gitlab.com/PrestonPan.atom</a></li>
-            </ul>
-            <p>As mentioned above, when I make an rss feed, I'll put it here.</p>
-        </section>
-
         <!-- Projects section -->
         <section>
-            <h3>Projects</h3>
-            <p>I mostly do programming projects, but social and political projects may be done in the future</p>
-            <ul>
-                <li><a href="">a simple webcrawler written in python</a></li>
-                <li><a href="">Practice with writing cryptographic functions</a></li>
-                <li><a href="NoExcess.html">Writing a compiler and language</a></li>
-                <li><a href="">Writing this website</a></li>
-            </ul>
-            <p>Additionally, I am planning to make a blog and rss feed. Stay tuned!</p>
+            <h2>Projects</h2>
+            <p>I mostly do programming projects, but social and political projects may be done in the future.</p>
+            <div id="projects"></div> <!-- Javascript renders here -->
+            <p><a href="./projects.html">See all projects ></a></p>
         </section>
 
-        <!-- Other projects section -->
+        <!-- Blog post section -->
         <section>
-            <h3>Projects that I use</h3>
-            <p>The following projects are the ones that I use regularly:</p>
-            <ul>
-                <li><a href="https://github.com/Sweets/tiramisu">tiramisu, a simple notificattion app for x11.</a></li>
-                <li><a href="https://tools.suckless.org/dmenu/">dmenu, a launcher and a general purpose application.</a></li>
-                <li><a href="https://dwm.suckless.org/">dwm, a simple tiling window manager for *nix operating systems.</a></li>
-            </ul>
-            <p>There are many more projects that I use, but my favorite ones are here. For a full list of applications, see <a href="">here.</a>
+            <h2>Recent blog posts</h2>
+            <p>The following are some recent blog posts by me that are not explicitly projects.</p>
+            <div id="blog"></div> <!-- Javascript renders here -->
+            <p><a href="./posts.html">See all blog posts ></a></p>
         </section>
+
+        <!-- Contact me section -->
+            <section>
+                <h2>Contact Me</h2>
+                <p>I only use platforms that respect my privacy. Therefore, I do not have an active discord account or social media.</p>
+                <ul>
+                    <li>My Email: PrestonPan@protonmail.com</li>
+                    <li>My XMPP address: prestonpan@jabber.calyxinstitute.org</li>
+                    <li>My Gitlab: <a href="https://gitlab.com/PrestonPan">https://gitlab.com/PrestonPan</a></li>
+                    <li>Gitlab RSS feed: <a href="https://gitlab.com/PrestonPan.atom">https://gitlab.com/PrestonPan.atom</a></li>
+                </ul>
+                <p>when I make an rss feed, I'll put it here.</p>
+            </section>
 
         <!-- Donate section -->
         <footer>
-            <h3>Donate</h3>
+            <h2>Donate</h2>
             <p>All my code is free and open source because I believe in a free and private internet. If you like any one of the projects I put out and license for free, consider supporting me by donating the following cryptocurrencies:</p>
             <ul>
                 <li>My algorand address: DN6JBN3TZZM5W2CTJF6Q7ALIKHHHUKJAXILC5DWFLHL2Y6TBQ2XQCDQLVM</li>
