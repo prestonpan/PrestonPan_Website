@@ -1,3 +1,4 @@
+// TODO: set up actual database. Only worth it when 15+ blogs.
 let blog_posts = 
 [
     {
@@ -25,7 +26,6 @@ let blog_posts =
 ];
 
 const sorted_blogs = blog_posts.slice().sort((a, b) => b.date - a.date);
-
 let final_html_blogs = "";
 if (document.title == "PanTech" && blog_posts.length >= 3) {
     for(let j = 0; j < 3; j ++) {
@@ -46,7 +46,5 @@ if (document.title == "PanTech" && blog_posts.length >= 3) {
         }
     };
 }
-
-
 const blog = document.getElementById("blog")
 blog.innerHTML = final_html_blogs

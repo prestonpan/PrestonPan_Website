@@ -1,15 +1,16 @@
+// TODO: set up actual database. Only worth it when 15+ projects.
 let projects = 
 [
     {
         name: "NoExcess",
-        description: "My godawful, jank compiled programming language",
+        description: "An elegant, and frankly useless compiled programming language.",
         date: new Date("2021-03-15"),
         path: "./content/projects/NoExcess/NoExcess.html",
         picture: "./content/projects/NoExcess/NoExcess.jpg",
     },
     {
         name: "PanTech website",
-        description: "My godawful, jank website. First time making one so don't judge too hard.",
+        description: "My godawful, jank website. Dracula themed so your eyes don't die.",
         date: new Date("2021-03-15"),
         path: "./content/projects/prestonpan/prestonpan.html",
         picture: null,
@@ -17,7 +18,7 @@ let projects =
     {
         name: "My dotfiles",
         date: new Date("2021-03-18"),
-        description: "My minimal linux dotfiles (dwm + arch + dracula color theme), some stolen from distrotube though",
+        description: "My minimal linux dotfiles (dwm + arch + dracula color theme), my distrobution of distrotube's distrobution of dwm",
         path: "./content/projects/my_dotfiles/my_dotfiles.html",
         picture: "./content/projects/my_dotfiles/my_dotfiles.png",
     },
