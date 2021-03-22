@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- font stuff -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200&display=swap"
+      rel="stylesheet"
+    />
+    <!-- main stylesheet -->
+
+    {%STYLE%}
+
+    <title>PanTech</title>
+  </head>
+
+  <body>
+    <!-- Top banner -->
+    <header>
+      <h1 class="banner-content">Preston Pan</h1>
+      <p class="banner-content">Programming and chilling</p>
+    </header>
+
+    <div class="main-content">
+      <!-- About me section -->
+      <section>
+        <h2>About Me</h2>
+        <p>
+          Hello! My name is Preston Pan, a student at Sir Winston Churchill
+          Secondary. Here is a little bit about myself:
+        </p>
+        <ul>
+          <li>experimenting with C, proficient in python</li>
+          <li>terrible css/webdev skills as you can tell by this website</li>
+          <li>learning linear algebra and cryptography</li>
+          <li>experimenting with x86-64 NASM assembly</li>
+          <li>
+            day to day arch linux user and advocates for free and open source
+            software and minimalism
+          </li>
+          <li>fun fact: I'm actually really bad at everything above</li>
+        </ul>
+        <p>
+          Of course, a few bullet points wouldn't do anyone justice if they
+          actually wanted to describe themselves, but I hope this gives you, the
+          reader, a rough idea.
+        </p>
+      </section>
+
+      <!-- Projects section -->
+      <section>
+        <h2>Projects</h2>
+        <p>
+          I mostly do programming projects, but social and political projects
+          may be done in the future.
+        </p>
+        <div id="projects">{%PROJECT1%}{%PROJECT2%}{%PROJECT3%}</div>
+        <!-- Javascript renders here -->
+        <p><a href="/projects">See all projects ></a></p>
+      </section>
+
+      <!-- Blog post section -->
+      <section>
+        <h2>Recent blog posts</h2>
+        <p>
+          The following are some recent blog posts by me that are not explicitly
+          projects.
+        </p>
+        <div id="blog">{%BLOG1%}{%BLOG2%}{%BLOG3%}</div>
+        <!-- Javascript renders here -->
+        <p><a href="/posts">See all blog posts ></a></p>
+      </section>
+
+      <!-- Contact me section -->
+      <section>
+        <h2>Contact Me</h2>
+        <p>
+          I only use platforms that respect my privacy. Therefore, I do not have
+          an active discord account or social media.
+        </p>
+        <ul>
+          <li>My Email: PrestonPan@protonmail.com</li>
+          <li>My XMPP address: prestonpan@jabber.calyxinstitute.org</li>
+          <li>
+            My Gitlab:
+            <a href="https://gitlab.com/PrestonPan"
+              >https://gitlab.com/PrestonPan</a
+            >
+          </li>
+          <li>
+            Gitlab RSS feed:
+            <a href="https://gitlab.com/PrestonPan.atom"
+              >https://gitlab.com/PrestonPan.atom</a
+            >
+          </li>
+        </ul>
+        <p>when I make an rss feed, I'll put it here.</p>
+      </section>
+
+      <!-- Donate section -->
+      <footer>
+        <h2>Donate</h2>
+        <p>
+          All my code is free and open source because I believe in a free and
+          private internet. If you like any one of the projects I put out and
+          license for free, consider supporting me by donating the following
+          cryptocurrencies:
+        </p>
+        <ul>
+          <li>
+            My algorand address:
+            DN6JBN3TZZM5W2CTJF6Q7ALIKHHHUKJAXILC5DWFLHL2Y6TBQ2XQCDQLVM
+          </li>
+          <li>
+            My bitcoin address: bc1qw2hcaes4zn29pzpzvll4u3uv8ckg7aq38nwk57
+          </li>
+        </ul>
+      </footer>
+    </div>
+  </body>
+</html>
