@@ -1,18 +1,33 @@
 <style>
   @font-face {
     font-family: Manrope;
-    src: url("/fonts/Manrope-Regular.otf") format("opentype");        
+    src: url("/fonts/JetBrainsMono-Medium.ttf") format("truetype");
   }
+
   * {
     background: #282a36;
     color: #f8f8f2;
     font-family: "Manrope", sans-serif;
   }
-
-  .main-content {
-    margin-left: auto;
-    margin-right: auto;
-    width: 1000px;
+  span {
+    color: white;
+    background-color: #44475a;
+    font-family: "JetBrains Mono";
+  }
+  html, body {
+    max-width: 100%;
+    overflow-x: hidden;          
+  }
+  body {
+    margin: 0;
+    padding: 0;
+  }
+  .main-content{
+    /*margin-left: auto;*/
+    /*margin-right: auto;*/
+    /*width: 1000px;*/
+    width: 60%;
+    margin: 0 auto 25px;
   }
 
   a {
@@ -24,7 +39,6 @@
   a:active {
     color: #50fa7b;
   }
-
   h2 {
     color: #ff79c6;
     max-width: 700px;
@@ -34,15 +48,17 @@
     max-width: 700px;
   }
 
-  .banner-content > h1 {
+  .banner-content h1 {
     color: #ff79c6;
+    margin: 0;
     text-align: center;
   }
 
   header {
     padding: 60px;
-    margin: 0px;
+    text-align: center;
     background: #1abc9c;
+    color: white;
     font-size: 30px;
   }
 
@@ -51,9 +67,11 @@
     color: white;
     background: #1abc9c;
   }
-
+  banner p{
+    padding: 0 30%;
+  }
   img {
-    max-width: 50%;
+    width: 600px;
     height: auto;
   }
 
@@ -62,14 +80,27 @@
     padding: 0 auto;
   }
 
-  #projects,
-  #blog {
-    padding-left: 50px;
-  }
-
   .center {
     margin-left: auto;
     margin-right: auto;
     width: 1000px;
+  }
+  @media only screen and (max-width: 767px){
+    header h1{
+        font-size: 30px;
+    }
+    header p{
+        font-size: 15px;
+    }
+    .address {
+        font-size: 7px;
+    }
+    span {
+        font-size: 10px;
+    }
+    img {
+        width: 300px;
+        height: auto;
+    }
   }
 </style>

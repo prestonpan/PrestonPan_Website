@@ -104,7 +104,7 @@ project = [
         'description': "{%DESCRIPTION%}",
         'path': "f{%MAIN_CONTENT%}", 
         'picture': None,
-        'gitlab': "{%GITLAB_REPO%}",
+        'git': "{%GIT_REPO%}",
         'template': project_template,
     },
     { ### TEMPLATE 2 ###
@@ -113,7 +113,7 @@ project = [
         'link': "{%ITEM_PATH%}",
         'path': None,
         'picture': "{%PICTURE%}",
-        'gitlab': None,
+        'git': None,
         'template': item_total_overview_template_project,
     },
     { ### TEMPLATE 3 ###
@@ -122,7 +122,7 @@ project = [
         'path': None,
         'link': "{%ITEM_PATH%}",
         'picture': "{%PICTURE%}",
-        'gitlab': None,
+        'git': None,
         'template': item_overview_template_project,
     },
     {
@@ -131,7 +131,7 @@ project = [
         'path': os.path.join(dirname, "content/projects/My_Dotfiles/My_Dotfiles.html"),
         'link': "content/projects/My_Dotfiles/My_Dotfiles.html", 
         'picture': "content/projects/My_Dotfiles/My_Dotfiles.webp",
-        'gitlab': "https://gitlab.com/PrestonPan/dotfiles",
+        'git': "git://prestonpan.tech/dotfiles.git",
     },
     {
         'name': "PrestonPan Website",
@@ -139,7 +139,7 @@ project = [
         'path': os.path.join(dirname, "content/projects/PrestonPan_Website/PrestonPan_Website.html"),
         'link': "content/projects/PrestonPan_Website/PrestonPan_Website.html", 
         'picture': "content/projects/PrestonPan_Website/PrestonPan_Website.webp",
-        'gitlab': "https://gitlab.com/PrestonPan/prestonpan",
+        'gitlab': "git://prestonpan.tech/prestonpan.git",
     },
     {
         'name': "NoExcess",
@@ -147,7 +147,7 @@ project = [
         'path': os.path.join(dirname, "content/projects/NoExcess/NoExcess.html"),
         'link': "content/projects/NoExcess/NoExcess.html", 
         'picture': "content/projects/NoExcess/NoExcess.webp",
-        'gitlab': "https://gitlab.com/PrestonPan/NoExcess",
+        'gitlab': "git://prestonpan.tech/NoExcess.git",
     },
 ]
 
@@ -218,14 +218,14 @@ os.mkdir(os.path.join(dirname, 'build/content/blog'))
 
 
 for i in range(len(all_blog_templates[0])):
-    if not os.path.exists(os.path.join(dirname, f"build/content/blog/{all_blog_templates[0][i][0]}")):
-        os.mkdir(f'{dirname}/build/content/blog/{all_blog_templates[0][i][0]}')
+    # if not os.path.exists(os.path.join(dirname, f"build/content/blog/{all_blog_templates[0][i][0]}")):
+    os.mkdir(f'{dirname}/build/content/blog/{all_blog_templates[0][i][0]}')
     with open(f'{dirname}/build/content/blog/{all_blog_templates[0][i][0]}/{all_blog_templates[0][i][0]}.html', "w+") as f:
         f.write(all_blog_templates[0][i][1])
 
 for i in range(len(all_project_templates[0])):
-    if not os.path.exists(os.path.join(dirname, f"build/content/projects/{all_project_templates[0][i][0]}")):
-        os.mkdir(f'{dirname}/build/content/projects/{all_project_templates[0][i][0]}')
+    # if not os.path.exists(os.path.join(dirname, f"build/content/projects/{all_project_templates[0][i][0]}")):
+    os.mkdir(f'{dirname}/build/content/projects/{all_project_templates[0][i][0]}')
     with open(f'{dirname}/build/content/projects/{all_project_templates[0][i][0]}/{all_project_templates[0][i][0]}.html', "w+") as f:
         f.write(all_project_templates[0][i][1])
 
@@ -292,6 +292,6 @@ for di in range(blog[0] + 1, len(blog)):
 
 ### Copy fonts dir ###
 shutil.copytree(os.path.join(dirname, 'fonts'), os.path.join(dirname, 'build/fonts'))
-
+### Copy img dir ###
+shutil.copytree(os.path.join(dirname, "img"), os.path.join(dirname, "build/img"))
 ### Generate RSS feed ###
-
