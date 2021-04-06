@@ -84,7 +84,7 @@ def generate_dataset_project(current_path, projects_path):
             project['description'] = f.read()
         projects.append(project)
     
-    projects.sort(key = lambda di: datetime.strptime(di['date'], '%d-%m-%Y'))
+    projects.sort(reverse=True, key = lambda di: datetime.strptime(di['date'], '%d-%m-%Y'))
     return projects
 
 
@@ -101,7 +101,7 @@ def generate_dataset_blog(current_path, blogs_path):
         date = datetime.fromtimestamp(os.path.getmtime(blog['path'])).strftime('%d-%m-%Y')
         blog['date'] = date
         blogs.append(blog)
-    blogs.sort(key = lambda di: datetime.strptime(di['date'], '%d-%m-%Y'))
+    blogs.sort(reverse=True, key = lambda di: datetime.strptime(di['date'], '%d-%m-%Y'))
     return blogs
 
 
@@ -293,4 +293,4 @@ if __name__ == '__main__':
     # copy stuff from content/
     shutil.copytree(os.path.join(dirname, 'fonts'), os.path.join(dirname, 'build/fonts'))
     shutil.copytree(os.path.join(dirname, 'img'), os.path.join('build/img'))
-
+    shutil.copyfile(os.path.join(dirname, 'robots.txt'), os.path.join(dirname, 'build/robots.txt'))
