@@ -22,12 +22,17 @@
     privacy in their lives is to switch search engines or web browsers to something other than google chrome
     or google search. There are many good replacements for these. <a href="https://duckduckgo.com">Duckduckgo</a>
     is a search engine that is more private than google, but my recommendation is 
-    <a href="https://searx.bar">searx</a>. This is because this is the only open source search engine, so you know
-    for sure what is going on in the backend. You can even host your own searx server.
+    <a href="https://searx.bar">searx</a>. This is because this is one of the only free search engines, and works
+    even with librejs installed (the license for the javascript is free but librejs blocks it anyway, however searx
+    works without javascript).
 </p>
 <p>
-    For the browser, I recommend <a href="https://brave.com">brave</a>. This is a browser that can randomize
-    your fingerprint, and is completely free and open source.
+    For the browser, I personally use a modified version of Mozilla Firefox named abrowser which
+    is licensed under a more free as in freedom license. This browser is only in the repository on Trisquel GNU+Linux,
+    but for other distros you can install icecat, which comes with librejs preinstalled. I block nonfree
+    javascript with the librejs extension, and firefox does some fingerprint randomization, so I am convinced
+    that my fingerprint is not unique. To test this, I did some fingerprinting tests (although they are not
+    completely reliable) and they all say I have a non-unique fingerprint.
 </p>
 <h3>Browser Fingerprinting</h3>
 <p>
@@ -35,20 +40,54 @@
     Many companies now employ the technique known as fingerprinting, which is a method by which 
     they can look at the extensions you have installed on your browser, look at what browser 
     you are using, the settings,and come up with a unique 
-    identifier based on those categories. Brave randomizes your fingerprint so each new session will look
-    completely different, thus mitigating your threat to tracking.
+    identifier based on those categories.
+</p>
+<h3>GNU Jami</h3>
+<p>
+    The next thing I'd consider to be the biggest privacy threat would be unencrypted communications.
+    GNU Jami is a private peer to peer and end to end encrypted messenger. This means that in all practical
+    only you and the person who receieves your message ever get ahold of the message (no server middleman),
+    and should someone get ahold of your message it would be end to end encrypted with forward secrecy
+    (even if they were to crack the encryption they would not be able to read all your messages). It being
+    peer to peer means it is faster than many of its centralized counterparts (trust me, I've tried myself
+    and it feels impossibly fast), and on top of all that, it is all released under the GPL, which is
+    the best license ever. The downsides: nobody uses it, and it's buggy as hell. If you have singular
+    people you need to talk to that are willing to use it, or even if you have an organization and
+    get to call the shots on what software you use for it, this might be a good option. Otherwise,
+    no normie is ever going to ask for your jami. Also, keep in mind that it is buggy. Sometimes,
+    messages don't send even though it's supposed to be fast.
 </p>
 <h3>Signal</h3>
 <p>
-    The next thing I'd consider to be the biggest privacy threat would be unencrypted communications. 
-    <a href="https://signal.org/en/">Signal</a> is one of the best encrypted messengers, and the one
+    For most regular people, 
+    <a href="https://signal.org/en/">Signal</a>
+    is one of the best encrypted messengers, and the one
     I use for personal communications. This is almost as fast as SMS, and it looks just as good. I do
     use XMPP, but that's a protocol that I might write a future article about. Also, signal is better
-    for non-advanced users.
+    for non-advanced users. All of the signal source code is published on github, including the server,
+    and the frontend code. Note that in order to register you will need a phone number capable of recieving
+    sms which is hard to obtain anonymously, and also almost every phone violates your freedoms in other ways
+    (nonfree repositories, software, kernel, firmware). I do have a phone with nonfree firmware and nonfree
+    kernel (grapheneOS), but I never take it outside and I use it for only signing up to services. See my
+    <a href="../Phone_Privacy/Phone_Privacy.html">phone privacy article</a> for more details.
 </p>
+<h3>Element</h3>
+<p>
+    This is yet another chatting application, but this one runs off of the Matrix protocol.
+    While Signal uses a centralized model, and Jami uses a peer to peer decentralized model,
+    Matrix is what's called federated. This means that anyone who runs a Matrix server can
+    connect to all of the others. You have the choice of what server your account is registered
+    on, including your own, because each server connects with all the others so that you can
+    view the public content on each server. I use it to connect to public rooms.
+    Note that public rooms are not end to end encrypted, and only DMs can be. Also note that
+    the Matrix protocol leaks a lot of metadata and makes it easy to construct a social graph.
+    I use it more as a social media platform, however, and I understand the risks, so I use it anyway.
+    You can get <a href="element.io">the frontend for matrix that I use, element, here.</a>
+</p>
+
 <h3>VPNs</h3>
 <p>
-    VPNs are good for watching banned videos and torrenting things over the web, but vpns do not contribute
+    VPNs are good for watching banned videos and torrenting things, but vpns do not contribute
     much to your privacy. Your VPN provider can still see as much as your ISP used to be able to, so if 
     you don't trust your VPN provider, you're better off just saving those dollars and using them to do anything
     else. That being said, you can still be identified by your ip when you go online, so how do you prevent this?
@@ -56,42 +95,82 @@
 <h3>Making your own VPN</h3>
 <p>
     The process of doing this is actually easier than it sounds. 
-    <a href="https://www.youtube.com/watch?v=gxpX_mubz2A">Wolfgang made a good video on this</a>, 
-    so if you're interested in this, I suggest watching that video. Yes, it's on youtube, but I actually
-    don't know if he has a peertube or a lbry channel.
+    <a href="https://yewtu.be/watch?v=gxpX_mubz2A">Wolfgang made a good video on this</a>, 
+    so if you're interested in this, I suggest watching that video.
+    <b>Take note that even if you make your own vpn, your search habits can be tied to that ip address.</b>
+    If you want each individual search session to be private, you can use tor.
+</p>
+<p>
+    As per the vps service, <a href="njal.la">njalla</a> was the best one I could find.
+    It also allows you to anonymously purchase domain names, which is huge because there
+    are almost no ways to do that nowadays. While the javascript is nonfree, running
+    the nonfree code only once and then being able to ssh into that machine is a good tradeoff
+    especially because they allow payments in monero and because I don't know of any other ways
+    to rent a server that are as private as this. Running a server is also not preferable to renting
+    one because if it is not your vps provider who has control, it is your isp, and they tend to be
+    much more authoritarian in this respect. Also, you would need to buy all the suplies which is
+    very hard to do anonymously.
+</p>
+<h3>Using Tor</h3>
+<p>
+    <a href="https://torproject.org">The tor protocol</a> is a completely free as in
+    freedom protocol that aims to anonymize your ip address. It does a pretty good job at this,
+    because so far many intelligence agencies have had a hard time deanonymizing traffic from it.
+    I personally use it as a proxy on abrowser. This is not for privacy reasons; in fact, it makes
+    my fingerprint unique if I allow javascript to run that will collect a fingerprint about me,
+    because tor is meant to be run with the tor browser, which makes all tor exit nodes look the same.
+    However, I trust that freely licensed javascript will not contain such tracking, and so librejs will
+    block all of it.
 </p>
 <h2>So I've done that. What next?</h2>
 <p>
     The things in this section are significantly harder to do than the things I talked about in the last
     section. If you're not willing to do these things, then at least do the things outlined above. 
 </p>
-<h3>Using TOR</h3>
+<h3>GNU+Linux and free software</h3>
 <p>
-    <a href="https://www.torproject.org/">TOR</a> is a free and open source 
-    project that basically completely anonymizes you on the internet.
-    They combat fingerprinting by making every tor browser the same, making it impossible to tell
-    the end user apart from other users. I use TOR for sensitive searches along with searching up
-    things I want to buy.
-</p>
-<h3>Linux and FOSS</h3>
-<p>
-    The last thing I suggest doing is switching to free and open source software whenever possible.
+    The last thing I suggest doing is switching to free software whenever possible.
     This includes the operating system you use. This may be a big shift in your life, but I guarantee
-    that it's worth it. Free and open source projects are often time multiple times better than closed
-    source project you have to pay for. I guarantee that if you don't try out free and open source software,
+    that it's worth it. Free as in freedom projects are often time multiple times better than
+    nonfree projects you have to pay for. I guarantee that if you don't try out free software,
     you're missing out. Also, it might seem like on the surface that you might be wasting your time by
-    "making your life harder" using linux, but I assure you, linux is very easy. The installation process
+    "making your life harder" using GNU+Linux, but I assure you, it's very easy. The installation process
     is easier than windows, at least for <a href="https://manjaro.org/">manjaro</a>, specifically
     manjaro xfce, the distribution of linux that I recommend for beginners. For those that 
-    don't know, linux has many distributions, whichare all linux but are all slightly different. 
+    don't know, GNU+Linux has many distributions, whichare all GNU+Linux but are all slightly different. 
     They may come with different programs installed by default, or they may use a modified 
     version of the linux kernel.
+</p>
+<p>
+    Switching to free software is important because it is much less likely for a piece of software
+    to abuse you when the maintainers know that their software can be forked (copied and modified)
+    if they put abusive features in it. Additionally, it is much less likely for the maintainers
+    of the software to put something abusive in the first place if they know many eyes are on their
+    codebase. Also, software can be improved (bugs and security vulnerablilities) can be patched
+    quicker if the code is completely libre.
+</p>
+<h3>Being Completely Free</h3>
+<p>
+    Using Manjaro should only be a transition stage to using a completely libre computer. I personally
+    run Trisquel GNU+Linux-libre, but any of the FSF approved distros should do the trick. The standard Linux
+    kernel has proprietary firmware blobs in it which means it is compatable with proprietary wifi cards,
+    to give an example. The Linux-libre kernel, which is what trisquel runs, however, is different in
+    that it does not support proprietary firmware blobs. This means you will have to get an Atheros wifi
+    card (free firmware) in order to connect to wifi, however many laptops on ebay or craigslist come
+    with that and libreboot. Buying things online is often a privacy and freedom problem,
+    but I believe it is one of the only ways to get your hands
+    on a librebooted thinkpad. Libreboot is a freedom respecting BIOS replacement that does not have any
+    of the nasty intel stuff like the intel ME. It is one of the only way to ensure that your BIOS is not
+    pinging intel, and it is the only(?) completely free BIOS replacement. I personally run a librebooted
+    thinkpad x200 with an atheros wifi card.
 </p>
 <h2>Conclusion</h2>
 <p>
     I recommend that every person who values democracy at least do some of the things mentioned in this
-    article. If you're still reluctant to do some of the things here, I'll ask you this: if everyone
-    else is waiting for someone else to protect liberty, and nobody does anything, is it really okay?
+    article. Without privacy, journalists and targetted individuals cannot make our government or our
+    corporate sector accountable. Additionally, the every day user is affected mentally by the knowledge
+    that the things that we do every day are being collected and analyzed. In order to have a free society,
+    we must have privacy.
 </p>
 <p>
     The truth is, at some point, we either take action to prevent our own government and businesses from

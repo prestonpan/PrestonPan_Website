@@ -1,1 +1,1 @@
-My minimal linux dotfiles.
+My minimal GNU+Linux dotfiles.

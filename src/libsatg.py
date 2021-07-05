@@ -78,13 +78,16 @@ def generate_dataset_project(current_path, projects_path):
         project['link'] = f"content/projects/{dirname}/{dirname}.html"
         project['picture'] = f"content/projects/{dirname}/{dirname}.webp"
         project['git'] = f'git://prestonpan.tech/{dirname}.git'
-        date = datetime.fromtimestamp(os.path.getmtime(project['path'])).strftime('%d-%m-%Y')
+        date = datetime.fromtimestamp(os.path.getctime(project['path'])).strftime('%d-%m-%Y')
         project['date'] = date
         with open(os.path.join(current_path, f'content/projects/{dirname}/description.txt'), 'r') as f:
             project['description'] = f.read()
         projects.append(project)
     
-    projects.sort(reverse=True, key = lambda di: datetime.strptime(di['date'], '%d-%m-%Y'))
+    projects.sort(
+        reverse=True,
+        key = lambda di: datetime.strptime(di['date'], '%d-%m-%Y')
+    )
     return projects
 
 
@@ -98,10 +101,12 @@ def generate_dataset_blog(current_path, blogs_path):
         blog['picture'] = f"content/blog/{dirname}/{dirname}.webp"
         with open(os.path.join(current_path, f'content/blog/{dirname}/description.txt'), "r") as f:
             blog['description'] = f.read()
-        date = datetime.fromtimestamp(os.path.getmtime(blog['path'])).strftime('%d-%m-%Y')
+        date = datetime.fromtimestamp(os.path.getctime(blog['path'])).strftime('%d-%m-%Y')
         blog['date'] = date
         blogs.append(blog)
-    blogs.sort(reverse=True, key = lambda di: datetime.strptime(di['date'], '%d-%m-%Y'))
+    blogs.sort(
+        reverse=True,
+        key = lambda di: datetime.strptime(di['date'], '%d-%m-%Y'))
     return blogs
 
 
@@ -294,3 +299,4 @@ if __name__ == '__main__':
     shutil.copytree(os.path.join(dirname, 'fonts'), os.path.join(dirname, 'build/fonts'))
     shutil.copytree(os.path.join(dirname, 'img'), os.path.join('build/img'))
     shutil.copyfile(os.path.join(dirname, 'robots.txt'), os.path.join(dirname, 'build/robots.txt'))
+    shutil.copyfile(os.path.join(dirname, 'preston.gpg'), os.path.join(dirname, 'build/preston.gpg'))
