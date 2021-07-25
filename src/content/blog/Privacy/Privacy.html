@@ -16,32 +16,83 @@
     two terms are different. For instance, Apple makes very secure products in that they are very hard to
     crack, but they are not private in the sense that they still collect information about you.
 </p>
+<p>
+    Below is an ever updating list of things that I would consider to be good for privacy. Obviously I'm pretty
+    dumb so some things here may not be true according to people who actually do this for a living, however I
+    am pretty confident in most of the things I have learned.
+</p>
+
 <h2>What can I do about my privacy?</h2>
+
 <p>
     This is a good question. In my opinion, the first thing that one should do to increase the amount of 
     privacy in their lives is to switch search engines or web browsers to something other than google chrome
-    or google search. There are many good replacements for these. <a href="https://duckduckgo.com">Duckduckgo</a>
-    is a search engine that is more private than google, but my recommendation is 
-    <a href="https://searx.bar">searx</a>. This is because this is one of the only free search engines, and works
-    even with librejs installed (the license for the javascript is free but librejs blocks it anyway, however searx
-    works without javascript).
+    or google search. There are many good replacements for these. The criteria by which I judge search engines
+    are as follows:
+    <ul>
+	<li>It can run with no javascript enabled.</li>
+	<li>It does not block tor connections.</li>
+	<li>(optional) It doesn't pull most of its results from other search engines.</li>
+    </ul>
 </p>
+
+<p>
+    <a href="https://duckduckgo.com">Duckduckgo</a>
+    is a search engine that is more private than google, and the html version of this website,
+    <a href="https://html.duckduckgo.com">html.duckduckgo.com</a>, does not require any javascript whatsoever.
+    Duckduckgo is okay with tor connections, so one can browse very anonymously. However, it pulls many results
+    from other search engines like Bing and Yandex. It meets two out of three requirements of my criteria.
+</p>
+
+<p>
+    <a href="https://searx.prestonpan.tech">searx</a> is another search engine that I use. It meets my criteria
+    for judging search engines, and the serverside is free software, which is an upside compared to duckduckgo.
+    It is a meta search engine, which means that it <i>only</i> pulls from other search engines, which could be
+    considered bad due to its reliance on privacy invasive search engines.
+    Another downside is that sometimes search results don't fetch from the other search engines it is supposed to fetch from.
+</p>
+
+<p>
+    <a href="https://search.brave.com">Brave's search engine</a>, as of today, meets all three criteria (sometimes), but
+    might change in the future due to its lack of a sustainable business model. Sometimes I have experienced it blocking
+    tor, but most of the time it works. Also, it uses its own index completely, which is a good thing. If this search engine
+    actually survives and stays like this, (and they fix the tor problem), it would meet all of my criteria.
+</p>
+
+<h2>Browsers</h2>
 <p>
     For the browser, I personally use a modified version of Mozilla Firefox named abrowser which
     is licensed under a more free as in freedom license. This browser is only in the repository on Trisquel GNU+Linux,
-    but for other distros you can install icecat, which comes with librejs preinstalled. I block nonfree
-    javascript with the librejs extension, and firefox does some fingerprint randomization, so I am convinced
-    that my fingerprint is not unique. To test this, I did some fingerprinting tests (although they are not
-    completely reliable) and they all say I have a non-unique fingerprint.
+    but for other distros you can install librewolf. I block nonfree
+    javascript with the librejs extension, for reasons outside of privacy. If you actually want to block javascript
+    efficiently, ublock origin is good for this, or noscript. I personally have both installed because ublock acts
+    like an ad blocker, and I have noscript installed to block the javascript.
 </p>
+<p>
+    The reason why I use a firefox based browser is mainly because of librejs. However, if you don't care about that
+    and just want to be private, you can and should use a chromium based browser. There are three main chromium based browsers
+    that privacy advocates use: ungoogled chromium, regular chromium, and brave. Brave is a good option if you don't
+    want to mess with your browser and just want the default settings that will make you quite private. If you don't
+    like the fact that they've had <a href="https://www.theverge.com/2020/6/8/21283769/brave-browser-affiliate-links-crypto-privacy-ceo-apology">
+    some problems
+    </a> in the past, or you don't like the brave branding and BAT, you can use ungoogled chromium,
+    which is probably more private than brave.
+    However, you might have to compile it yourself which can be a pain. Also, it is known to have
+    some security problems, in that ungoogled chromium doesn't build with CFI by default.
+    <a href="https://qua3k.github.io/ungoogled/">A person who is a duck who is much smarter than me</a> made a blog
+    about how you can use chromium and disable flags to make it almost as private as ungoogled chromium but much more secure.
+</p>
+
 <h3>Browser Fingerprinting</h3>
 <p>
-    Tracking ip addresses and using cookies are very old school methods for collecting data nowadays.
+    Note: tracking ip addresses and using cookies are very old school methods for collecting data nowadays.
     Many companies now employ the technique known as fingerprinting, which is a method by which 
     they can look at the extensions you have installed on your browser, look at what browser 
     you are using, the settings,and come up with a unique 
     identifier based on those categories.
 </p>
+
+<h2>Messengers</h2>
 <h3>GNU Jami</h3>
 <p>
     The next thing I'd consider to be the biggest privacy threat would be unencrypted communications.
@@ -94,11 +145,12 @@
 </p>
 <h3>Making your own VPN</h3>
 <p>
-    The process of doing this is actually easier than it sounds. 
+    Most people believe that this is a solution to this problem, but it is actually not.
+    <b>You will still be identified with the IP of your VPS whenever you search online.</b>
+    However, if you want to do this, the process of doing this is actually easier than it sounds. 
     <a href="https://yewtu.be/watch?v=gxpX_mubz2A">Wolfgang made a good video on this</a>, 
     so if you're interested in this, I suggest watching that video.
     <b>Take note that even if you make your own vpn, your search habits can be tied to that ip address.</b>
-    If you want each individual search session to be private, you can use tor.
 </p>
 <p>
     As per the vps service, <a href="njal.la">njalla</a> was the best one I could find.
@@ -111,21 +163,29 @@
     much more authoritarian in this respect. Also, you would need to buy all the suplies which is
     very hard to do anonymously.
 </p>
+<p>
+    Note: I have never used njalla. I have no idea how their service is, I can only say that it allows
+    anonymous registration and payment.
+</p>
 <h3>Using Tor</h3>
 <p>
     <a href="https://torproject.org">The tor protocol</a> is a completely free as in
     freedom protocol that aims to anonymize your ip address. It does a pretty good job at this,
     because so far many intelligence agencies have had a hard time deanonymizing traffic from it.
-    I personally use it as a proxy on abrowser. This is not for privacy reasons; in fact, it makes
-    my fingerprint unique if I allow javascript to run that will collect a fingerprint about me,
-    because tor is meant to be run with the tor browser, which makes all tor exit nodes look the same.
-    However, I trust that freely licensed javascript will not contain such tracking, and so librejs will
-    block all of it.
+    You should only use it with the official tor browser, if you want maximum anonymity, due to fingerprinting
+    issues related to using it on a non-official browser. <b>Tor is basically the only way you can ever
+    be anonymous online.</b>
 </p>
-<h2>So I've done that. What next?</h2>
+<h2>Consider free software?</h2>
 <p>
     The things in this section are significantly harder to do than the things I talked about in the last
     section. If you're not willing to do these things, then at least do the things outlined above. 
+</p>
+<p>
+    Free software is more of a principle thing than a privacy one, but they are related. To read more,
+    <a href="https://prestonpan.tech/content/blog/Free_Software/Free_Software.html">
+	see my post on free software
+    </a>.
 </p>
 <h3>GNU+Linux and free software</h3>
 <p>
@@ -136,10 +196,10 @@
     you're missing out. Also, it might seem like on the surface that you might be wasting your time by
     "making your life harder" using GNU+Linux, but I assure you, it's very easy. The installation process
     is easier than windows, at least for <a href="https://manjaro.org/">manjaro</a>, specifically
-    manjaro xfce, the distribution of linux that I recommend for beginners. For those that 
+    manjaro xfce, the distribution of linux that I recommend for beginners. For those that
     don't know, GNU+Linux has many distributions, whichare all GNU+Linux but are all slightly different. 
-    They may come with different programs installed by default, or they may use a modified 
-    version of the linux kernel.
+    They may come with different programs installed by default, use a modified
+    version of the linux kernel, use a different init system, or even use a different libc.
 </p>
 <p>
     Switching to free software is important because it is much less likely for a piece of software

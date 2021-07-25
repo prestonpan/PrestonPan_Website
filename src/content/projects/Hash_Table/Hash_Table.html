@@ -1,0 +1,35 @@
+<h2>Introduction</h2>
+<p>
+    This, so far, is my hash table implementation in java. I started making it
+    because I have I try to use my code instead of other peoples' code whenever I
+    can. Currently there is only a java implementation utilizing
+    linked lists, however an implementation that utilizes a binary search tree and
+    one that is programmed in c is coming soon. Also, the hashing algorithm
+    will be replaced with salsa20's hash function, or perhaps another one if needed
+    (email me or send me a message through matrix for good hashing algorithms. They
+    do not need to be cryptographically secure).
+</p>
+
+<h2>Details</h2>
+<p>
+    The process of making a hash table is pretty simple in java, I found. Basically,
+    classes and lack of memory allocation make this much easier to debug and to program
+    than in c. However, because I do recognize that it can be slower, and that c is in need
+    of hash table implementations way more than java, I will program a version of this code in c.
+    Another thing is that this hash table cannot hold so many entries due to its primitive hash function,
+    and it is slow at handling them due to the nature of linked lists. Another problem is that
+    both the key and the value are strings, which limits the flexibility of this implementation.
+    To solve this in java, I will use generic types, and for c, I will use void pointers.
+</p>
+<p>
+    Basically, the current implementation works by setting a max size, and then allocating memory to buckets equal
+    to that max size. A bucket is a section that holds a key value pair. Each bucket is actually a linked list, and
+    each node contains a key value pair that hashes to the index of the bucket. This can be used to solve collision,
+    because if there is already an entry in a bucket the hash table makes a new node in the bucket and places the new
+    pair in that node. Deletion works the same way; simply hash the key, go to the bucket that matches the hash, then
+    find the node that has the key inside.
+</p>
+<h2>Conclusion</h2>
+<p>
+    Overall, this was pretty educational, and I will implement more data structures and algorithms in the future. 
+</p>
