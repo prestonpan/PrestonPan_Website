@@ -1,106 +1,109 @@
 <style>
-  @font-face {
-    font-family: Manrope;
-    src: url("/fonts/JetBrainsMono-Medium.ttf") format("truetype");
+ @font-face {
+      font-family: JetbrainsMono;
+      font-display: swap; 
+      src: url("/fonts/JetBrainsMono-Medium.ttf") format("truetype");
+ }
+ * {
+     background: #282828;
+     color: #ebdbb2;
+     font-family: "JetbrainsMono", sans-serif;
+     box-sizing: border-box;
+ }
+ code {
+     color: white;
+     /* background-color: #44475a; */
+     background-color: transparent;
+     font-family: "JetbrainsMono";
+     white-space: pre-wrap ~important;
+ }
+ html, body {
+     max-width: 100%;
+     overflow-x: hidden;      
+ }
+ body {
+     margin: 0;
+     padding: 0;
+     line-height: 1.5;
+     display: inline
+ }
+ .main-content{
+     /*margin-left: auto;*/
+     /*margin-right: auto;*/
+     /*width: 1000px;*/
+     width: 60%;
+     margin: 0 auto 25px;
   }
-
-  * {
-    background: #282828;
-    color: #ebdbb2;
-    font-family: "Manrope", sans-serif;
-  }
-  span {
-    color: white;
-    background-color: #44475a;
-    font-family: "Manrope";
-  }
-  html, body {
-    max-width: 100%;
-    overflow-x: hidden;          
-  }
-  body {
-    margin: 0;
-    padding: 0;
-  }
-  .main-content{
-    /*margin-left: auto;*/
-    /*margin-right: auto;*/
-    /*width: 1000px;*/
-    width: 60%;
-    margin: 0 auto 25px;
-  }
-
-  a {
-    color: #83a598;
-  }
-
-  a:hover,
-  a:visited,
-  a:active {
-    color: #d3869b;
-  }
-  h2 {
-    color: #d3869b;
-    max-width: 700px;
-  }
-
-  h3 {
-    max-width: 700px;
-  }
-
-  .banner-content h1 {
-    color: #8ec07c;
-    margin: 0;
-    text-align: center;
-  }
-
-  header {
-    padding: 60px;
-    text-align: center;
-    background: #8ec07c;
-    color: white;
-    font-size: 30px;
-  }
-
-  .banner-content {
-    text-align: center;
-    color: white;
-    background: #8ec07c;
-  }
-  banner p{
-    padding: 0 30%;
-  }
-  img {
-    width: 600px;
-    height: auto;
-  }
-
-  figure {
-    margin: 0 auto;
-    padding: 0 auto;
-  }
-
-  .center {
-    margin-left: auto;
-    margin-right: auto;
-    width: 1000px;
-  }
-  @media only screen and (max-width: 767px){
-    header h1{
-        font-size: 30px;
-    }
-    header p{
-        font-size: 15px;
-    }
-    .address {
-        font-size: 7px;
-    }
-    span {
-        font-size: 10px;
-    }
-    img {
-        width: 300px;
-        height: auto;
-    }
-  }
+ a {
+     color: #83a598;
+ }
+ a:hover,
+ a:visited,
+ a:active {
+     color: #d3869b;
+ }
+ h2 {
+     color: #d3869b;
+     max-width: 700px;
+ }
+ h3 {
+     max-width: 700px;
+ }
+ .item-title {
+     display: inline;
+ }
+ .banner-content h1 {
+     color: #d65d0e;
+     margin: 0;
+     text-align: center;
+ }
+ header {
+     padding: 60px;
+     text-align: center;
+     background: #d65d0e;
+     color: #fbf1c7;
+     font-size: 30px;
+ }
+ .banner-content {
+     text-align: center;
+     color: #fbf1c7;
+     background: #d65d0e;
+ }
+ banner p{
+     padding: 0 30%;
+     color: #fbf1c7;
+ }
+ img {
+     width: 600px;
+     height: auto;
+ }
+ figure {
+     margin: 0 auto;
+     padding: 0 auto;
+ }
+ pre {
+     overflow-x: auto;
+     /* padding-left: 1rem; */
+     padding: 1rem;
+     border: 1px solid;
+ }
+ ul {
+     overflow: hidden;
+     padding-left: 2em;
+ }
+ @media only screen and (max-width: 767px){
+     header h1{
+         font-size: 30px;
+     }
+     header p{
+         font-size: 15px;
+     }
+     img {
+         width: 300px;
+         height: auto;
+     }
+     .main-content{
+	 width: 90%;
+     }
+ }
 </style>

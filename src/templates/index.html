@@ -5,6 +5,9 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<meta name="yandex-verification" content="4bcfdd288ca50b54" />
+	<meta name="description" content="My personal blog and projects website." />
+	<meta name="author" content="Preston Pan" />
+	<meta name="keywords" content="Programming, Privacy" />
 	<link rel="icon" type="image/svg" href="./img/favicon.svg"/>
     <!-- main stylesheet -->
 
@@ -59,10 +62,8 @@
           may be done in the future.
         </p>
         <div id="projects">{%PROJECTS%}</div>
-        <!-- Javascript renders here -->
-        <p><a href="projects.html">See all projects ></a></p>
+        <p><a href="projects.html">Take a look at my projects ></a></p>
       </section>
-
       <!-- Blog post section -->
       <section>
         <h2>Recent blog posts</h2>
@@ -71,8 +72,18 @@
           projects.
         </p>
         <div id="blog">{%BLOGS%}</div>
-        <!-- Javascript renders here -->
-        <p><a href="posts.html">See all blog posts ></a></p>
+        <p><a href="posts.html">My amazing blog posts ></a></p>
+      </section>
+      
+      <section>
+	  <h2>Services</h2>
+          <p>
+	      These are all the services my website offers. You may use them for any purpose.
+          </p>
+	  <ul>
+	      <li><a href="https://searx.prestonpan.tech">My searx instance</a></li>
+	      <li><a href="http://4ugiqvhd7mrofdcubx5in4srqpmpsskwx4dpjps4waou5aksvoyk6vad.onion/">My onion site</a></li>
+	  </ul>
       </section>
       <!-- Contact me section -->
       <section>
@@ -84,14 +95,13 @@
         <ul>
           <li>My Email: prestonpan@anche.no</li>
           <li>My Matrix address: @prestonpan:matrix.org</li>
-          <li>
+	  <li>
             My Git:
-            <a href="prestonpan.tech/projects.html"
-              >See my projects. </a> There will be a git repo at the bottom of each one.
+            <a href="projects.html"
+              >My projects</a> have a git repo at the bottom.
           </li>
 	  <li>
-	      My public pgp key:
-	      <a href="preston.gpg">https://prestonpan.tech/preston.gpg</a>
+	      <a href="preston.gpg">My gpg key</a>
 	  </li>
         </ul>
         <p>when I make an rss feed, or a peertube/lbry/youtube channel, I'll put it here.</p>
@@ -101,7 +111,7 @@
           <p>
             This site was designed to be minimal, with less than 120 lines of css, and no javascript.
             To avoid using javascript, I used a static site generator that I wrote specifically
-            for this website. 
+            for this website.
           </p>
           <p>
             If you like that this website has no hidden trackers, google fonts,
@@ -118,15 +128,15 @@
           cryptocurrencies:
         </p>
         <ul>
+            <li>
+		My monero address (anonymous, secure, private):
+		<pre><code>
+84rDH9Mhz5E2zYYVAqAa5C2BMw5yXFTk4WYZaDw7YWWNfCRWYvrSU1kMvEcUYRPtg4RmTr3HNSVcdGbJS4XedMovM2dwpLu</code></pre>
+	  </li>
           <li>
-            My monero address (anonymous, secure, private):
-            <span class="address"> 
-                82at33YQSyFiNW1BPEdYrqNkYqXciTNFn5bM9ymxwve5ZVKffDix1C8cYEKVc3Cfmw5cijZmXK4aLi1iyupFaR2dVPWeuQR
-            </span> 
-          </li>
-          <li>
-            My bitcoin address (anonymous, but not private): 
-            <span class="address">bc1qr36t20qr2nt0fmq0c4ya8wy7ufxvtg087r3tru</span>
+            My bitcoin address (Pseudonymous, secure, but not private): 
+	      <pre><code>
+bc1qf3g5p84tkcm2xvsqtz7cqjr9g68pymrnpxp76z</code></pre>
           </li>
         </ul>
       </footer>

@@ -10,14 +10,17 @@
     <title>Blog posts</title>
   </head>
   <body>
-    <div>
-      <!-- Top banner -->
-      <header>
-        <h1 class="banner-content">All Blog Posts</h1>
-        <p class="banner-content">Just some good content</p>
-      </header>
-      <div id="blog" class="center">{%POSTS%}</div>
-      <!-- Javascript renders here -->
-    </div>
+      <div>
+	  <!-- Top banner -->
+	  <header>
+              <h1 class="banner-content">All Blog Posts</h1>
+              <p class="banner-content">Just some good content</p>
+	  </header>
+	  <div class="main-content">
+	      <section>
+		  <div id="blog">{%POSTS%}</div>
+	      </section>
+	  </div>
+      </div>
   </body>
 </html>
