@@ -3,74 +3,148 @@ from pathlib import Path
 import shutil
 from datetime import datetime
 
-class Tokenizer:
+class Minifier:
     def __init__(self, source):
-        self.source = source
         self.index = 0
-        self.c = source[0]
+        self.source = [c for c in source]
+        self.c = self.source[0]
 
-    def tokenize_tag(self):
-        pass
+    def advance_tokenizer(self):
+        if self.index < len(self.source) - 1:
+            self.index += 1
+            self.c = self.source[self.index]
+
+    def delete_character(self):
+        del self.source[self.index]
+        self.c = self.source[self.index]
+
+    def delete_space_before_tag(self):
+        i = 1
+        ch = self.source[self.index - i]
+        while ch.isspace() or ch == '\n':
+            del self.source[self.index - i]
+            i += 1
+            self.index -= 1
+            ch = self.source[self.index - i]
     
-    def tokenize_all(self):
-        pass
+    def skip_tag(self):
+        is_open = True
+        while is_open:
+            self.advance_tokenizer()
+            if self.c == '>':
+                is_open = False
+        self.advance_tokenizer()
+        while self.c.isspace() or self.c == "\n":
+            self.delete_character()
     
+    def minify_all(self):
+        while self.index < len(self.source) - 1:
+            if self.c == '<':
+                self.delete_space_before_tag()
+                self.skip_tag()
+            else:
+                self.advance_tokenizer()
+        return "".join(self.source).replace("\n", "").replace("\t", "")
+
+### CLASS FOR STATIC ASSEMBLY-LINE TEMPLATE GENERATOR
 class SATG:
+    '''
+    A class that takes in templates that contain placeholder data, a directory of html files, 
+    and a list of relevant data, returning 
+    the built html fragments in processed_templates. 
+    '''
     def __init__(self, templates, templates_dir, data): 
         # will be a list of template dictionaries
         self.templates = templates
         self.templates_dir = templates_dir
         # will be a dictionary with the file name colon the content
-        self.template_files = self.generate_template_files(self.templates_dir)
+        self.template_files = self.generate_template_files()
         # directory of template files        
         self.data = data
         self.processed_templates = self.build_dataset()
-    
-    @staticmethod
-    def generate_template_files(templates_dir):
+
+    def generate_template_files(self):
+        '''
+        returns a dictionary of templates, with the key being the name of the template (the file name) and the value being the 
+        contents of the template. Fetches the template from a template directory (in this project, src/templates).
+        '''
+        
         templates = {}
-        for f in os.listdir(templates_dir):
-            f_dir = os.path.join(templates_dir, f)
+        for f in os.listdir(self.templates_dir):
+            f_dir = os.path.join(self.templates_dir, f)
             with open(f_dir, "r") as fi:
                 f_contents = fi.read()
-            templates[f] = f_contents
+            minifier = Minifier(f_contents)
+            templates[f] = minifier.minify_all()
         return templates
 
+    # 
     def build_dataset(self):
+        # fragments are pieces of html
         all_fragments = []
+
+        # the first element of list dicts contains the amount of templates to generate
         dicts = [len(self.templates)]
+
+        # then we add all the actual dictionaries to the list. [number of dictionaries, dictionaries]
         dicts.extend(self.templates)
+
+        # We add the data to render in these templates. [number of dictionaries, dictionaries, data]
         dicts.extend(self.data)
+
+        # looping through all dictionaries
         for i in range(1, dicts[0] + 1):
             keys = list(dicts[i].keys())
             fragments = []
+
+            # looping through data
             for j in range(dicts[0] + 1, len(dicts)):
                 template = self.template_files[dicts[i]['template']]
+
+                # keys of looped dictionary
                 for key in keys[:-1]:
+
+                    # 'template' is the file that contains the placeholder text
                     if key == 'template':
                         continue
                     tag = dicts[i][key]
                     content = dicts[j][key]
+
+                    # if a key's value at a template doesn't exist (if the key does not exist)
                     if tag is None:
                         continue
+
+                    # if it does exist and the first character of the tag is an f
                     elif tag[0] == "f":
                         with open(content, 'r') as f:
+                            # read from a file (f indicates that the tag must be replaced with text from a file)
                             fragment = f.read()
+                        # replace the tag with an html fragment
                         template = template.replace(tag, fragment)
                     else:
-                        template = template.replace(tag, content) 
+                        # otherwise just replace the tag with some data
+                        template = template.replace(tag, content)
+                # append a list containing the name and content of the final assembled file
                 fragments.append([dicts[j]['name'].replace(" ", "_"), template])
+            # append all all fragments for a specific template
             all_fragments.append(fragments)
         return all_fragments
     
     def replace_tag_for_all(self, tag, text, is_template=True):
+        '''
+        replaces a single tag for the whole dataset. Same as replace_single_tag other than this fact.
+        '''
         for i in self.processed_templates:
             for j in i:
                 j[1] = self.replace_single_tag(j[1], tag, text)
         for key in self.template_files:
             self.template_files[key] = self.replace_single_tag(self.template_files[key], tag, text, is_template)
- 
+
     def replace_single_tag(self, fragment, tag, text, is_template=True):
+        '''
+        replaces a single tag for a piece of text. If the text is contained in a file, then read the file and replace the tag.
+        fragment: a string that should be a piece of valid HTML text. It is the 
+        '''
         if tag[0] == 'f' and not is_template:
             with open(text, "r") as f:
                 e = f.read()
@@ -80,8 +154,18 @@ class SATG:
             e = text
         return fragment.replace(tag, e)
 
+    def minify(self, string):
+        '''
+        returns a minified version of the string without any unneeded whitespaces or newlines.
+        TODO: get rid of unneeded spaces.
+        '''
+        minifier = Minifier(string)
+        return minifier.minify_all()
 
 def generate_dataset_project(current_path, projects_path):
+    '''
+    Generates a dataset from certain files and then returns it in a list. See generate_dataset_blog also.
+    '''
     projects = []
     for dirname in os.listdir(projects_path):
         project = {} 
@@ -104,6 +188,10 @@ def generate_dataset_project(current_path, projects_path):
 
 
 def generate_dataset_blog(current_path, blogs_path):
+    '''
+    Generates a dataset (name, date, etc...) from certain files and then returns it in a list. Does this for
+    data related with a blog.
+    '''
     blogs = []
     for dirname in os.listdir(blogs_path):
         blog = {}
@@ -121,10 +209,14 @@ def generate_dataset_blog(current_path, blogs_path):
         key = lambda di: datetime.strptime(di['date'], '%d-%m-%Y'))
     return blogs
 
+# TODO: automatically minifies html to one line and no unneeded spaces. Currently only does newline.
 def minify(string):
-    return string.replace("\n", "")
-    # return "".join(string.split())
+    minifier = Minifier(string)
+    return minifier.minify_all()
+    # return string.replace("\n", "")
 
+
+# main driver code
 if __name__ == '__main__':
     ### GLOBALS ###
     dirname = os.path.dirname(__file__)
@@ -183,7 +275,7 @@ if __name__ == '__main__':
     for i in range(len(project_templates[0])):
         os.mkdir(os.path.join(dirname, f'build/content/projects/{project_templates[0][i][0]}'))
         with open(os.path.join(dirname, f'build/content/projects/{project_templates[0][i][0]}/{project_templates[0][i][0]}.html'), 'w') as f:
-            f.write(minify(project_templates[0][i][1]))
+            f.write(project_templates[0][i][1])
 
     projects_page_all_content = ''.join([i[1] for i in project_templates[1]])
     projects_page = projects_gen.replace_single_tag(
@@ -193,7 +285,7 @@ if __name__ == '__main__':
             False
     )
     with open(os.path.join(dirname, 'build/projects.html'), "w+") as f:
-        f.write(minify(projects_page))
+        f.write(projects_page)
    
     ### BLOG DATASET ASSEMBLY ###
     blog_templates = [
@@ -202,7 +294,7 @@ if __name__ == '__main__':
             'description': '{%DESCRIPTION%}',
             'picture': None,
             'link': None,
-            'path': "f{%MAIN_CONTENT%}",
+            'path': "f{%MAIN_CONTENT%}", # the f in front indicates that we replace this tag with a file.
             'template': 'post.html',
             'date': None,
         },
@@ -236,7 +328,7 @@ if __name__ == '__main__':
     for i in range(len(blog_templates[0])):
         os.mkdir(os.path.join(dirname, f'build/content/blog/{blog_templates[0][i][0]}'))
         with open(os.path.join(dirname, f'build/content/blog/{blog_templates[0][i][0]}/{blog_templates[0][i][0]}.html'), 'w') as f:
-            f.write(minify(blog_templates[0][i][1]))
+            f.write(blog_templates[0][i][1])
 
     blogs_page_all_content = ''.join([i[1] for i in blog_templates[1]])
     blogs_page = blogs_gen.replace_single_tag(
@@ -246,13 +338,13 @@ if __name__ == '__main__':
             False
     )
     with open(os.path.join(dirname, 'build/posts.html'), "w+") as f:
-        f.write(minify(blogs_page))
+        f.write(blogs_page)
  
     ### GENERAL PAGE ASSEMBLY ###
     
     # 404 page
     with open(os.path.join(dirname, "build/404.html"), "w+") as f:
-        f.write(minify(projects_gen.template_files['404.html']))
+        f.write(projects_gen.template_files['404.html'])
     
     # index page
     index_projects = project_templates[2][0][1] + project_templates[2][1][1] + project_templates[2][2][1]
@@ -271,7 +363,7 @@ if __name__ == '__main__':
     )
 
     with open(os.path.join(dirname, 'build/index.html'), 'w+') as f:
-        f.write(minify(index_template))
+        f.write(index_template)
     
     # TODO: atom feed
     ### - Make new blog/project template for atom feed ###
