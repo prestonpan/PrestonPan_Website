@@ -1,144 +1,165 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-	<meta charset="UTF-8" />
-	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<meta name="yandex-verification" content="4bcfdd288ca50b54" />
-	<meta name="description" content="My personal blog and projects website." />
-	<meta name="author" content="Preston Pan" />
-	<meta name="keywords" content="Programming, Privacy" />
-	<link rel="icon" type="image/svg" href="./img/favicon.svg"/>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="yandex-verification" content="4bcfdd288ca50b54" />
+        <meta name="description" content="My personal blog and projects website." />
+        <meta name="author" content="Preston Pan" />
+        <meta name="keywords" content="Programming, Privacy" />
+        <link rel="icon" type="image/svg" href="./img/favicon.svg"/>
 
-    {%STYLE%}
+        {%STYLE%}
 
-    <title>PanTech</title>
-  </head>
-    
-  <body>
-    <header>
-        <h1 class="banner-content">Preston Pan</h1>
-        <p class="banner-content">Programming and chilling.</p>
-    </header>
-    <div class="main-content">
-      <section>
-         
-        <h2>About Me</h2>
-	<p>
-	  Hello! My name is Preston Pan, a student at Sir Winston Churchill
-          Secondary. Here is a little bit about myself:
-        </p>
-        <ul>
-          <li>good at C and python, depending on who you ask</li>
-          <li>terrible css/webdev skills as you can tell by this website</li>
-          <li>learning linear algebra and cryptography</li>
-          <li>experimenting with x86-64 NASM assembly</li>
-	  <li>insane card magic skills due to practising an insane amount</li>
-          <li>
-            day to day user and advocate of free software
-          </li>
-          <li>fun fact: I'm actually really bad at everything above</li>
-        </ul>
-        <p>
-          Of course, a few bullet points wouldn't do anyone justice if they
-          actually wanted to describe themselves, but I hope this gives you, the
-          reader, a rough idea.
-        </p>
-	<p>
-	    Notice: my blog post about privacy has basically become an ever changing
-	    post, with frequent updates as I get more educated about privacy. It's basically
-	    turning into my attempt at an overall privacy guide, so check it out.
-	</p>
-      </section>
-      
-      <section>
-        <h2>Projects</h2>
-        <p>
-          I mostly do programming projects, but social and political projects
-          may be done in the future.
-        </p>
-        <div id="projects">{%PROJECTS%}</div>
-        <p><a href="projects.html">Take a look at my projects ></a></p>
-      </section>
-      
-      <section>
-        <h2>Recent blog posts</h2>
-        <p>
-          The following are some recent blog posts by me that are not explicitly
-          projects.
-        </p>
-        <div id="blog">{%BLOGS%}</div>
-        <p><a href="posts.html">My amazing blog posts ></a></p>
-      </section>
-      
-      <section>
-	  <h2>Services</h2>
-          <p>
-	      These are all the services my website offers. You may use them for any purpose.
-          </p>
-	  <ul>
-	      <li><a href="https://searx.prestonpan.tech">My searx instance</a></li>
-	      <li><a href="http://4ugiqvhd7mrofdcubx5in4srqpmpsskwx4dpjps4waou5aksvoyk6vad.onion/">My onion site</a></li>
-	  </ul>
-      </section>
+        <title>PanTech</title>
+    </head>
 
-      <section>
-        <h2>Contact Me</h2>
-        <p>
-          I only use platforms that respect my privacy. Therefore, I do not have
-            an active discord account or social media.
-        </p>
-        <ul>
-          <li>My Email: prestonpan@anche.no</li>
-          <li>My Matrix address: @prestonpan:synod.im</li>
-	  <li>My Signal: Email me for my phone number.</li>
-	  <li>
-            My Git:
-            <a href="projects.html"
-              >My projects</a>&nbsp;have a git repo at the bottom.
-          </li>
-	  <li><a href="https://codeberg.org/PrestonPan">My codeberg.</a>&nbsp;use only if needed.
-	      I update my own git server more.</li>
-	  <li>
-	      <a href="preston.gpg">My gpg key</a>
-	  </li>
-        </ul>
-        <p>when I make an rss feed, or a peertube/lbry/youtube channel, I'll put it here.</p>
-      </section>
-      <section>
-          <h2>About this site</h2>
-          <p>
-            This site was designed to be minimal, with less than 120 lines of css, and no javascript.
-            To avoid using javascript, I used a static site generator that I wrote specifically
-            for this website.
-          </p>
-          <p>
-            If you like that this website has no hidden trackers, google fonts,
-            or really anything that could undermine your privacy, or frankly, your eyes, consider: 
-          </p>
-      </section>
+    <body>
+        <header>
+            <h1 class="banner-content">Preston Pan</h1>
+            <p class="banner-content">Programming and chilling.</p>
+        </header>
+        <div class="main-content">
+            <section>
 
-      <footer>
-        <h2>Donating</h2>
-        <p>
-          All my code is free/libre because I believe in a free and
-          private internet. If you like any one of the projects I put out and
-          license for free, consider supporting me by donating the following
-          cryptocurrencies:
-        </p>
-        <ul>
-            <li>
-		My monero address (anonymous, secure, private):
-		<pre><code>
+                <h2>About Me</h2>
+                <p>
+                Hello! My name is Preston Pan, a student and programmer. Here is a little bit about myself:
+                </p>
+                <ul>
+                    <li>good at C and python, depending on who you ask</li>
+                    <li>terrible css/webdev skills as you can tell by this website</li>
+                    <li>learning linear algebra and cryptography</li>
+                    <li>experimenting with x86-64 NASM assembly</li>
+                    <li>card magic skills due to practising an amount that is unfathomable to the average person</li>
+                    <li>day to day user and advocate of free software, or what is called "open source" software</li>
+                </ul>
+                <p>
+                Of course, these things aren't all who I am exactly, but it might give one an idea of
+                what I like doing.
+                </p>
+                <p>
+                Notice: my blog post about privacy has basically become an ever changing
+                post, with frequent updates as I get more educated about privacy. It's basically
+                turning into my attempt at an overall privacy guide, so check it out.
+                </p>
+            </section>
+
+            <section>
+                <h2>Projects</h2>
+                <p>
+                I mostly do programming projects, but social and political projects
+                may be done in the future.
+                </p>
+                <div id="projects">{%PROJECTS%}</div>
+                <p><a href="projects.html">Take a look at my projects ></a></p>
+            </section>
+
+            <section>
+                <h2>Recent blog posts</h2>
+                <p>
+                The following are some recent blog posts by me that are not explicitly
+                projects.
+                </p>
+                <div id="blog">{%BLOGS%}</div>
+                <p><a href="posts.html">My amazing blog posts ></a></p>
+            </section>
+
+            <section>
+                <h2>Services</h2>
+                <p>
+                These are all the services my website offers. You may use them for any purpose.
+                </p>
+                <ul>
+                    <li><a href="https://searx.prestonpan.tech">My searx instance</a></li>
+                    <li><a href="http://4ugiqvhd7mrofdcubx5in4srqpmpsskwx4dpjps4waou5aksvoyk6vad.onion/">My onion site</a></li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>Contact Me</h2>
+                <p>
+                I only use platforms that respect my privacy. Therefore, I do not have
+                an active discord account or social media.
+                </p>
+                <ul>
+                    <li>My Email: prestonpan@anche.no</li>
+                    <li>My Matrix address: @prestonpan:synod.im</li>
+                    <li>My Signal: Email me for my phone number.</li>
+                    <li>
+                        My Git:
+                        <a href="projects.html"
+                           >My projects</a>&nbsp;have a git repo at the bottom.
+                    </li>
+                    <li><a href="https://codeberg.org/PrestonPan">My codeberg.</a>&nbsp;use only if needed.
+                        I update my own git server more.</li>
+                    <li>
+                        <a href="preston.gpg">My gpg key</a>
+                    </li>
+                    <li>
+                        <a href="https://yewtu.be/channel/UCRj5fSRmxphNr1ZBDdv2D4A">
+                            My Youtube channel.
+                        </a> ironic that I am using it when it is not free software I know,
+                        but hopefully more people will learn about it. Also I am directing people to LBRY.
+                    </li>
+                    <li>
+                        <a href="https://odysee.com/@prestonpan:8">My LBRY channel</a>. Use this instead of youtube
+                        as it is free software.
+                    </li>
+                </ul>
+                <p>when I make an rss feed or a peertube, I'll put it here.</p>
+            </section>
+            <section>
+                <h2>Commissioning</h2>
+                <p>
+                If you want some software made for you, you can commission me. Message me via email, or preferably,
+                matrix to do so. The software will be released under some sort of GPL license but it is not required
+                that you distribute it. You, as the user or commissioner, have the right to use and distribute the software
+                as you wish given those who you distribute it also follow the rules of the GPL. You may even choose to
+                keep the software secret and only use it for yourself. All I ask is that people who get the software know
+                who made it and that they don't infringe on the rights of others to use the same software if they distribute it.
+                </p>
+                <p>
+                You may pay me in bitcoin, or preferably monero. I will need more time and money to do bigger projects,
+                obviously. Please note that I have a limited skillset in terms of programming, however if you want something
+                sort of simple done I can do that.
+                </p>
+            </section>
+
+            <section>
+                <h2>About this site</h2>
+                <p>
+                This site was designed to be minimal, with less than 120 lines of css, and no javascript.
+                To avoid using javascript, I used a static site generator that I wrote specifically
+                for this website.
+                </p>
+                <p>
+                If you like that this website has no hidden trackers, google fonts,
+                or really anything that could undermine your privacy, or frankly, your eyes, consider: 
+                </p>
+            </section>
+            <footer>
+                <h2>Donating</h2>
+                <p>
+                All my code is free/libre because I believe in a free and
+                private internet. If you like any one of the projects I put out and
+                license for free, consider supporting me by donating the following
+                cryptocurrencies:
+                </p>
+                <ul>
+                    <li>
+                        My monero address (anonymous, secure, private):
+                        <pre><code>
 84rDH9Mhz5E2zYYVAqAa5C2BMw5yXFTk4WYZaDw7YWWNfCRWYvrSU1kMvEcUYRPtg4RmTr3HNSVcdGbJS4XedMovM2dwpLu</code></pre>
-	  </li>
-          <li>
-            My bitcoin address (Pseudonymous, secure, but not private): 
-	      <pre><code>
-bc1qf3g5p84tkcm2xvsqtz7cqjr9g68pymrnpxp76z</code></pre>
-          </li>
-        </ul>
-      </footer>
-    </div>
-  </body>
+                    </li>
+                    <li>
+                        My bitcoin address (Pseudonymous, secure, but not private): 
+                        <pre><code>
+bc1qjelvtr6mwrfgc9r0rhytrmwr0hrpjthn8upgjp</code></pre>
+                    </li>
+                </ul>
+            </footer>
+        </div>
+    </body>
 </html>

@@ -1,6 +1,7 @@
 import os
 import shutil
 
+'''A short script that makes a new entry automatically.'''
 if __name__ == "__main__":
     current_path = os.path.dirname(__file__)
     print("Welcome to my automatic script for making empty blog posts and websites!")

@@ -10,9 +10,9 @@
 
 <h2>Isn't stock android secure enough?</h2>
 <p>
-    If you update android on a regular basis, it may be secure enough, however, 
+    If you update android on a regular basis, it is probably secure enough, however, 
     <a href="../Privacy/Privacy.html">security is not privacy.</a> You can have a secure phone
-    and still have your data leaked to the likes of google, facebook, or even amazon:
+    and still have your data leaked to the likes of google or facebook.
 </p>
 
 <h2>Apple</h2>
@@ -60,12 +60,15 @@
     Tired of going on the web version of youtube and getting tracked on their website? Newpipe is a 
     heavily underrated application that allows you to browse youtube, without the frontend tracking and
     fingerprinting. Note that youtube still has your ip and browsing habits when you use newpipe.
+    This app is also a soundcloud and peertube frontend, and it is fairly good at being those things too,
+    although I personally use those platforms less.
     This app allows you to see and download videos, and although the comments break sometimes,
     it can still on occassion display them properly. Note that you will get capchas while browsing
     on newpipe if you connect via tor.
     I use this app as a youtube frontend on my phone, but use an
     <a href="https://yewtu.be">invidious instance</a> most of the time instead, due to it being free
-    and not blocking tor connections.
+    and not blocking tor connections. Unrelated to this article, but freetube is a desktop youtube client
+    that works well too.
 </p>
 <h3>Aegis authenticator</h3>
 <p>
@@ -73,10 +76,62 @@
     is a free software implementation of two factor authentication, and can store accounts and generate
     new authentication codes. These apps can be found in F-droid.
 </p>
+<h3>The simple app suite</h3>
+<p>
+    This is more like a range of applications and not a single one. Personally, I use the calculator, camera,
+    and music apps from this suite of apps instead of the default ones because they have a dark theme. These
+    apps are fully free software and they work pretty well for what they are supposed to do.
+</p>
+<h3>Netguard</h3>
+<p>
+    This is a firewall that restricts certain apps' access to wifi. This is good for limiting blocking
+    wifi connections for big brother applications. However, even if you don't have any big brother applications, netguard
+    is still quite useful for limiting data use and also using a dns blocklist without root. Using one can block ads system-wide,
+    trackers, malicious websites, and other things you don't want in your life. I use <a href="https://github.com/StevenBlack/hosts">Steven Black's</a> blocklist, but you can use any other blocklist too. 
+</p>
+<p>
+    To add a blocklist, install netguard and in the drop-dowm menu select settings > Backup > Hosts file download URL.
+    Enter in:
+    <br>
+    <code>
+https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/fakenews-gambling-porn-social/hosts
+    </code>
+    <br>
+    if you are using StevenBlack's blocklist that blocks everything, for example. Then, hit Download hosts file. If you
+    turn netguard on, everything should be blocked. Note that this does not work for the Tor browser.
+</p>
+
+<h3>Bromite</h3>
+<p>
+    This is a fork of chromium that is free software and is a privacy and anonymity focused alternative to Vanadium.
+    Vanadium is a fairly good browser and is probably the best in terms of security on android, however the one thing
+    that annoys me about the browser is that there is no way to open every link in incognito as of right now. Bromite
+    can do this, and it also has ad blocking which is important. Note that there is basically no way to block
+    non-free javascript in this browser except for turning off javascript, but this is for every browser on android I believe,
+    except iceraven, which has security problems like all forks of firefox and firefox itself does.
+</p>
+
+<p>
+    To install fdroid, <a href="https://www.bromite.org/fdroid">follow this guide to add the fdroid repository</a>,
+    then install it via fdroid.
+</p>
+
+<h3>Organic Maps</h3>
+<p>
+    Ever wanted a completely free replacement to google maps? Well, Organic Maps is quite the replacement. It's got a lot
+    of functionality depending on where you live, and if there isn't much information about places where you live, you can
+    help contribute to OpenStreeetMaps, the free database of places in the world which Organic Maps depends on, yourself.
+    As for my city, it already has most of the places where I would like to go to.
+</p>
 
 <h3>Conclusion</h3>
 <p>
+    There are some other apps that I would like to list but would probably deserve their own blog post like
+    Signal, Element/Fluffychat and the matrix protocol, LBRY, and cryptocurrency related stuff.
+</p>
+<p>
     Phones are not designed for privacy, security, or anonimity. They are designed to track you, and in order
     to stop that tracking completely, you need to step outside of your comfort zone and basically get rid
-    of google. If you're not willing to do this, just don't get a phone, because Apple is evil too.
+    of google. If you're not willing to do this, just don't get a phone, use and Apple phone, but actually don't
+    because it's proprietary.
 </p>
